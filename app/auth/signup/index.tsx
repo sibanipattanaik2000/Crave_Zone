@@ -1,6 +1,6 @@
 import CustomTextInput from "@/component/CustomTextInput";
 import FoodImageSlider from "@/component/FoodImageSlider";
-import { useRouter } from "expo-router";
+import { Href, useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   View,
@@ -56,7 +56,7 @@ const Signup = () => {
       Alert.alert("Signup Successful", "Your account has been created!", [
         {
           text: "OK",
-          onPress: () => router.push("/auth/login"),
+          onPress: () => router.push("/tabs/home" as Href),
         },
       ]);
     }, 100);

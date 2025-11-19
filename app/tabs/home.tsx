@@ -2,16 +2,17 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import {
-    FlatList,
-    ImageBackground,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  FlatList,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+const username = "Sibani";
 const featuredRecipes = [
   {
     id: "1",
@@ -20,7 +21,7 @@ const featuredRecipes = [
     calories: "420 kcal",
     rating: 4.8,
     image:
-      "https://images.unsplash.com/photo-1608039829574-7425e2161c92?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "2",
@@ -69,14 +70,9 @@ const HomeScreen = () => {
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.eyebrow}>Good Evening</Text>
-            <Text style={styles.welcome}>What will you crave today?</Text>
-          </View>
-          <View style={styles.avatar}>
-            <Text style={styles.avatarText}>CZ</Text>
-          </View>
+        <View style={{ paddingBottom: 14 }}>
+          <Text style={styles.eyebrow}>Good Evening {username}</Text>
+          <Text style={styles.welcome}>What will you crave today?</Text>
         </View>
 
         <TouchableOpacity activeOpacity={0.9}>
@@ -212,14 +208,6 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingHorizontal: 20,
-    paddingBottom: 32,
-    paddingTop: 12,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 16,
   },
   eyebrow: {
     color: "#FF6B00",
@@ -418,4 +406,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
