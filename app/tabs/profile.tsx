@@ -2,12 +2,12 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -79,14 +79,16 @@ const ProfileScreen = () => {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Preferences</Text>
-          {["Cuisine palettes", "Dietary highlights", "Notification cadence"].map(
-            (pref) => (
-              <TouchableOpacity key={pref} style={styles.preferenceRow}>
-                <Text style={styles.preferenceText}>{pref}</Text>
-                <Ionicons name="chevron-forward" color="#FF6B00" size={18} />
-              </TouchableOpacity>
-            )
-          )}
+          {[
+            "Cuisine palettes",
+            "Dietary highlights",
+            "Notification cadence",
+          ].map((pref) => (
+            <TouchableOpacity key={pref} style={styles.preferenceRow}>
+              <Text style={styles.preferenceText}>{pref}</Text>
+              <Ionicons name="chevron-forward" color="#FF6B00" size={18} />
+            </TouchableOpacity>
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -223,4 +225,3 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileScreen;
-

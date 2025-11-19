@@ -1,11 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
-    FlatList,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -58,7 +58,10 @@ const CategoriesScreen = () => {
           <TouchableOpacity style={styles.card}>
             <View style={styles.paletteRow}>
               {item.palettes.map((color) => (
-                <View key={color} style={[styles.palette, { backgroundColor: color }]} />
+                <View
+                  key={color}
+                  style={[styles.palette, { backgroundColor: color }]}
+                />
               ))}
             </View>
             <View style={styles.cardHeader}>
@@ -149,4 +152,3 @@ const styles = StyleSheet.create({
 });
 
 export default CategoriesScreen;
-

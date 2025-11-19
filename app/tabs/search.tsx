@@ -1,12 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -73,7 +73,9 @@ const SearchScreen = () => {
                 <Text style={styles.cardDescription}>
                   {collection.description}
                 </Text>
-                <Text style={styles.cardMeta}>{collection.recipes} recipes</Text>
+                <Text style={styles.cardMeta}>
+                  {collection.recipes} recipes
+                </Text>
               </View>
               <Ionicons name="arrow-forward" size={18} color="#FF6B00" />
             </TouchableOpacity>
@@ -209,4 +211,3 @@ const styles = StyleSheet.create({
 });
 
 export default SearchScreen;
-
