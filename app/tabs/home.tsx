@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { Href, useRouter } from "expo-router";
 import React from "react";
 import {
   FlatList,
@@ -13,6 +14,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const username = "Sibani";
+
 const featuredRecipes = [
   {
     id: "1",
@@ -51,10 +53,10 @@ const quickActions = [
 ];
 
 const categories = [
-  { id: "c1", title: "Breakfast", icon: "cafe", color: "#FFECD6" },
-  { id: "c2", title: "Bowls", icon: "restaurant", color: "#FFE3E0" },
-  { id: "c3", title: "Desserts", icon: "ice-cream", color: "#FFF5D6" },
-  { id: "c4", title: "Drinks", icon: "wine", color: "#E3F2FF" },
+  { id: "c1", title: "Breakfast", icon: "cafe", color: "#FFECD6", key: "breakfast" },
+  { id: "c2", title: "Bowls", icon: "restaurant", color: "#FFE3E0", key: "bowls" },
+  { id: "c3", title: "Desserts", icon: "ice-cream", color: "#FFF5D6", key: "desserts" },
+  { id: "c4", title: "Drinks", icon: "wine", color: "#E3F2FF", key: "drinks" },
 ];
 
 const tips = [
@@ -64,6 +66,7 @@ const tips = [
 ];
 
 const HomeScreen = () => {
+  const router = useRouter();
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView
@@ -105,7 +108,7 @@ const HomeScreen = () => {
                 uri: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=900&q=80",
               }}
               style={styles.heroImage}
-              imageStyle={{ borderRadius: 24 }}
+              imageStyle={{ borderRadius: 24,width:"100%" }}
             />
           </LinearGradient>
         </TouchableOpacity>
@@ -127,7 +130,7 @@ const HomeScreen = () => {
 
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>Featured recipes</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push("/recepies" as Href)}>
             <Text style={styles.linkText}>View all</Text>
           </TouchableOpacity>
         </View>
@@ -173,6 +176,18 @@ const HomeScreen = () => {
             <TouchableOpacity
               key={category.id}
               style={[styles.categoryCard, { backgroundColor: category.color }]}
+              onPress={() => {
+              router.push(`/categories?category=${category.key}` as Href);
+              }}
+
+              // onPress={() =>
+              //   router.push(
+              //     `/categories?selected=${encodeURIComponent(
+              //       JSON.stringify(category)
+              //     )}` as Href
+              //   )
+              // }
+              // onPress={()=>router.push(`/categories/${category.id}`as Href)}
             >
               <Ionicons
                 name={`${category.icon}-outline` as any}
@@ -237,8 +252,8 @@ const styles = StyleSheet.create({
   heroCard: {
     flexDirection: "row",
     borderRadius: 28,
-    padding: 22,
-    gap: 16,
+    padding: 20,
+    gap:10,
     alignItems: "center",
   },
   heroTextWrapper: {
@@ -277,8 +292,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   heroImage: {
-    width: 110,
-    height: 150,
+    width: "23%",
+    height: "70%",
   },
   quickAction: {
     backgroundColor: "#fff",

@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   profileCard: {
     borderRadius: 30,
-    padding: 20,
+    padding: 15,
   },
   profileRow: {
     flexDirection: "row",
